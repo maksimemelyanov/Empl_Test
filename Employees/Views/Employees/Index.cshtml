@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Employees.Model.Employee>
+
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<h2>Список сотрудников</h2>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<div class="tree">
+
+    @foreach (var emp in Model.Where(x => x.ChiefId == null))
+    {
+        @Html.Partial("_empTree", emp);
+    }
+
+</div>
+
+<style>
+
+    
+</style>
+

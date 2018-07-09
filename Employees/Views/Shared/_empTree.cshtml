@@ -1,0 +1,12 @@
+﻿@model Employees.Model.Employee
+
+<div>
+    @Model.FullName (<a asp-controller="Employees" asp-action="Delete" asp-route-id="@Model.Id">удалить</a>)
+    <details>
+        <summary></summary>
+        @foreach (var sub in Model.Subordinates)
+        {
+            @Html.Partial("_empTree", sub)
+        }
+    </details>
+</div>
